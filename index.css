@@ -1,0 +1,59 @@
+body{
+    font-family: 'Indie Flower', cursive;
+}
+
+.backimage{
+    background-image: url("img/mainimage.jpg");
+    background-size: cover;
+    -webkit-filter:blur(8px);
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+.bottomcontainer{
+    z-index:1;
+    border:black 1px;
+
+}
+.toparea img{
+    margin-top: 100px;
+    width:100%;
+    height:400px;
+    background-color: black;
+    z-index: -1;
+    position: relative;
+    border-radius: 10px;
+}
+.addplayer{
+    background-color: white;
+    height:150px;
+    margin:15px 15px 15px 15px;
+    border-radius: 10px;
+}
+.add{
+    background-color: dodgerblue;
+    height:50px;
+    width:150px;
+    color:white;
+    font-size: 16px;
+    margin:10px 0 0 10px;
+    border-radius: 10px;
+}
+.insidetext{
+    position: absolute;
+}
+
+#blackarea{
+    z-index: 1;
+    position: absolute;
+}
+#coursename{
+    z-index: 1;
+    position: absolute;
+}
+#weather{
+    z-index: 1;
+    position: absolute;
+}
