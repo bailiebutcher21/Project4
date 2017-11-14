@@ -1,8 +1,15 @@
 body{
     font-family: 'Indie Flower', cursive;
-}
+    background-color: black;
+    width:1200px;
 
-.backimage{
+}
+.topcontainer{
+    position: relative;
+    display:flex;
+    justify-content: center;
+}
+.backimage img{
     background-image: url("img/mainimage.jpg");
     background-size: cover;
     -webkit-filter:blur(8px);
@@ -16,15 +23,25 @@ body{
     z-index:1;
     border:black 1px;
 
+
+
 }
-.toparea img{
+.image{
     margin-top: 100px;
     width:100%;
     height:400px;
     background-color: black;
     z-index: -1;
-    position: relative;
     border-radius: 10px;
+}
+.toparea{
+    background-image: url("img/GooglePhoto.jpg");
+    width:1000px;
+    height:400px;
+    display:flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-repeat: no-repeat;
 }
 .addplayer{
     background-color: white;
@@ -41,19 +58,20 @@ body{
     margin:10px 0 0 10px;
     border-radius: 10px;
 }
-.insidetext{
-    position: absolute;
-}
-
-#blackarea{
+.leftside{
     z-index: 1;
-    position: absolute;
+    color:white;
+    width:50%;
+    height:100%;
+    font-size: 50px;
+    margin:300px 40px 0 10px;
 }
-#coursename{
+.rightside{
     z-index: 1;
-    position: absolute;
-}
-#weather{
-    z-index: 1;
-    position: absolute;
+    width:30%;
+    height:60%;
+    background-image: url("img/whiteimage.png");
+    border-radius: 10px;
+    margin: 120px 20px 0 0;
+    opacity: 0.5;
 }
