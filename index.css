@@ -73,5 +73,11 @@ body{
     background-image: url("img/whiteimage.png");
     border-radius: 10px;
     margin: 120px 20px 0 0;
-    opacity: 0.5;
+    opacity: 0.8;
+}
+#openweathermap-widget-15{
+    font-size: 28px;
+    margin: 20px 15% 0 15%;
+    text-align: center;
+
 }
