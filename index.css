@@ -1,7 +1,7 @@
 body{
     font-family: 'Indie Flower', cursive;
     background-color: black;
-    width:1200px;
+
 
 }
 .topcontainer{
@@ -9,21 +9,12 @@ body{
     display:flex;
     justify-content: center;
 }
-.backimage img{
-    background-image: url("img/mainimage.jpg");
-    background-size: cover;
-    -webkit-filter:blur(8px);
-    width:100%;
-    height:100%;
-    position:fixed;
-    z-index: -1;
-    background-repeat: no-repeat;
-}
+
 .bottomcontainer{
     z-index:1;
     border:black 1px;
-
-
+    width:1200px;
+    margin: 0 100px 0 100px;
 
 }
 .image{
