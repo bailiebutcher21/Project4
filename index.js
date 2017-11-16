@@ -16,3 +16,20 @@ function tempconvert(valNum) {
     valNum = parseFloat(valNum);
     return Math.round(((valNum-273.15)*1.8)+32);
 }
+
+function addPlayer(){
+        var add = "<div id='lists'><span onclick='editItem(this)'>" + thelabel + "</span><button id=deletebutton onclick='deleteItem(this)'>DELETE</button><button class='completedbtn' onclick='completeItem(this)'>COMPLETE</button></div>";
+
+}
+
+var closeCourses;
+var local_obj = {latitude:40.4426135, longitude: -111.8631116, radius: 100};
+
+function loadMe(){
+    $.post("https://golf-courses-api.herokuapp.com/courses", local_obj, function(data,status){
+       closeCourses = JSON.parse(data);
+        for(var p in closeCourses.courses){
+           console.log(closeCourses.courses[p].name);
+       }
+        })
+}

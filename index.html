@@ -6,10 +6,8 @@
     <link rel="stylesheet" href="index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-
-
 </head>
-<body>
+<body onload="loadMe()">
 
 <select id="selectCourse"></select>
 <select id="selecttype"></select>
@@ -31,7 +29,7 @@
 
 <div class="bottomcontainer">
 <div class="addplayer">
-    <button class="add">Add Player</button>
+    <button class="add" onclick="addPlayer()">Add Player</button>
 </div>
 
 </div>
