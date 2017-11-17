@@ -20,7 +20,7 @@ function tempconvert(valNum) {
 function addPlayer(){
         $("#tablehead").append("<tr id='random'></tr>");
     for (var i = 0; i < 21; i++) {
-        $("#random").append("<th scope=\"col\"><input></th>");
+        $("#random").append("<th scope=\"col\"><input id='inputval'></th>");
     }
 
 }
