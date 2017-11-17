@@ -18,7 +18,7 @@ function tempconvert(valNum) {
 }
 
 function addPlayer(){
-        var add = "<div id='lists'><span onclick='editItem(this)'>" + thelabel + "</span><button id=deletebutton onclick='deleteItem(this)'>DELETE</button><button class='completedbtn' onclick='completeItem(this)'>COMPLETE</button></div>";
+    var add = "<div id='lists'><span onclick='editItem(this)'>" + thelabel + "</span><button id=deletebutton onclick='deleteItem(this)'>DELETE</button><button class='completedbtn' onclick='completeItem(this)'>COMPLETE</button></div>";
 
 }
 
@@ -27,11 +27,11 @@ var local_obj = {latitude:40.4426135, longitude: -111.8631116, radius: 100};
 
 function loadMe(){
     $.post("https://golf-courses-api.herokuapp.com/courses", local_obj, function(data,status){
-       closeCourses = JSON.parse(data);
+        closeCourses = JSON.parse(data);
         for(var p in closeCourses.courses){
-           $("#selectCourse").append("<option value='"+ closeCourses.courses[p].id + "'>"+ closeCourses.courses[p].name +"</option");
-       }
-        });
+            $("#selectCourse").append("<option value='"+ closeCourses.courses[p].id + "'>"+ closeCourses.courses[p].name +"</option");
+        }
+    });
 }
 
 function getCourse(courseid){
@@ -40,6 +40,3 @@ function getCourse(courseid){
         console.log(currentCourse);
     });
 }
-
-
-/* Use get when we send in course ID to get information back */

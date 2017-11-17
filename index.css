@@ -11,9 +11,10 @@ body{
 .bottomcontainer{
     z-index:1;
     border:black 1px;
-    width:1200px;
+    width:1100px;
     margin: 0 100px 0 100px;
     align-self: stretch;
+
 
 }
 .image{
