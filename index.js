@@ -18,7 +18,10 @@ function tempconvert(valNum) {
 }
 
 function addPlayer(){
-    var add = "<div id='lists'><span onclick='editItem(this)'>" + thelabel + "</span><button id=deletebutton onclick='deleteItem(this)'>DELETE</button><button class='completedbtn' onclick='completeItem(this)'>COMPLETE</button></div>";
+        $("#tablehead").append("<tr id='random'></tr>");
+    for (var i = 0; i < 21; i++) {
+        $("#random").append("<th scope=\"col\"><input></th>");
+    }
 
 }
 
