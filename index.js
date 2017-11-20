@@ -68,7 +68,8 @@ function buildCard(mytee){
 
     for(var c in currentCourse.course.holes){
         var getPar = currentCourse.course.holes[c].tee_boxes[mytee].par;
-        $(".scorecolumn").append("<div id='column" + (Number(c) + 1) + "' class='column'><div class='holenumber'>" + (Number(c) +1) +"</div><span class='gettee'>Par " + getPar +"</span></div></div>")
+        var gethcp = currentCourse.course.holes[c].tee_boxes[mytee].hcp;
+        $(".scorecolumn").append("<div id='column" + (Number(c) + 1) + "' class='column'><div class='holenumber'>" + (Number(c) +1) +"</div><span class='gettee'>Par " + getPar +"</span><div class='hcp'>HCP "+ gethcp +"</div></div></div>")
     }
     fillCard();
 }
