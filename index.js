@@ -3,6 +3,7 @@ var closeCourses;
 var local_obj = {latitude:40.4426135, longitude: -111.8631116, radius: 100};
 var numholes;
 var numplayers = 5;
+var selectedtee;
 
 
 $(function(){
@@ -57,15 +58,17 @@ function getCourse(courseid){
         console.log(currentCourse);
         for(var t in currentCourse.course.tee_types) {
             var teename = currentCourse.course.tee_types[t].tee_type;
-            $("#selecttype").append("<option value='" + teename +"'>"+ teename + "</option>");
+            $("#selecttype").append("<option value='" + t +"'>"+ teename + "</option>");
         } });
 }
 function buildCard(mytee){
+    selectedtee = mytee;
     numholes = currentCourse.course.holes.length;
     console.log(numholes);
 
     for(var c in currentCourse.course.holes){
-        $(".scorecolumn").append("<div id='column" + (Number(c) + 1) + "' class='column'></div>")
+        var getPar = currentCourse.course.holes[c].tee_boxes[mytee].par;
+        $(".scorecolumn").append("<div id='column" + (Number(c) + 1) + "' class='column'><div class='holenumber'>" + (Number(c) +1) +"</div><span class='gettee'>Par " + getPar +"</span></div></div>")
     }
     fillCard();
 }
