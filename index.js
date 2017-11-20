@@ -19,12 +19,22 @@ function tempconvert(valNum) {
 
 function addPlayer(){
         $("#tablehead").append("<tr id='random'></tr>");
+        for(var i =0; i<1; i++){
+            $("#random").append("<div id='lists'>Player<span onclick='editItem(this)'></span></div>");
+        }
     for (var i = 0; i < 21; i++) {
         $("#random").append("<th scope=\"col\"><input id='inputval'></th>");
+        $("#inputbox").val("");
     }
 
 }
+var editItem = function(element) {
+    var text = element.innerText;
+    var input ="<input onkeyup='save(this)' value='"+ text +"'>";
+    $(element).parent().prepend(input);
+    $(element).remove();
 
+};
 var closeCourses;
 var local_obj = {latitude:40.4426135, longitude: -111.8631116, radius: 100};
 
@@ -41,5 +51,11 @@ function getCourse(courseid){
     $.get("https://golf-courses-api.herokuapp.com/courses/" + courseid, function(data){
         currentCourse = JSON.parse(data);
         console.log(currentCourse);
-    });
+        for(var t in currentCourse.course.tee_types) {
+            var teename = currentCourse.course.tee_types[t].tee_type;
+            $("#selecttype").append("<option value='" + teename +"'>"+ teename + "</option>");
+        } });
+}
+function getType(){
+
 }
