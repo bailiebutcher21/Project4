@@ -1,4 +1,9 @@
 var weatherobj;
+var closeCourses;
+var local_obj = {latitude:40.4426135, longitude: -111.8631116, radius: 100};
+var numholes;
+var numplayers = 5;
+
 
 $(function(){
     $.get("http://api.openweathermap.org/data/2.5/weather?q=Lehi&appid=cc8ef8e5c209d938ab3801daa42b5e31", function(data, status){
@@ -35,8 +40,7 @@ var editItem = function(element) {
     $(element).remove();
 
 };
-var closeCourses;
-var local_obj = {latitude:40.4426135, longitude: -111.8631116, radius: 100};
+
 
 function loadMe(){
     $.post("https://golf-courses-api.herokuapp.com/courses", local_obj, function(data,status){
@@ -56,6 +60,12 @@ function getCourse(courseid){
             $("#selecttype").append("<option value='" + teename +"'>"+ teename + "</option>");
         } });
 }
-function getType(){
+function buildCard(mytee){
+    numholes = currentCourse.course.holes.length;
+    console.log(numholes);
 
+    for(var c in currentCourse.course.holes){
+        $(".scorecolumn").append("<div id='column" + (Number(c) + 1) + "' class='column'></div>")
+
+    }
 }

@@ -11,7 +11,7 @@
 <body onload="loadMe()">
 
 <select id="selectCourse" onchange="getCourse(this.value)"></select>
-<select id="selecttype" onchange="getType(this.value)"></select>
+<select id="selecttype" onchange="buildCard(this.value)"></select>
 
 <div class="topcontainer">
     <div class="toparea">
@@ -31,34 +31,12 @@
 <div class="bottomcontainer">
 <div class="addplayer">
     <button class="add" onclick="addPlayer()">Add Player</button>
-    <table class="table table-bordered">
-        <thead id="tablehead">
-        <tr>
-            <th scope="col">Holes</th>
-            <th scope="col">1</th>
-            <th scope="col">2</th>
-            <th scope="col">3</th>
-            <th scope="col">4</th>
-            <th scope="col">5</th>
-            <th scope="col">6</th>
-            <th scope="col">7</th>
-            <th scope="col">8</th>
-            <th scope="col">9</th>
-            <th scope="col">10</th>
-            <th scope="col">11</th>
-            <th scope="col">12</th>
-            <th scope="col">13</th>
-            <th scope="col">14</th>
-            <th scope="col">15</th>
-            <th scope="col">16</th>
-            <th scope="col">17</th>
-            <th scope="col">18</th>
-            <th scope="col">In</th>
-            <th scope="col">Out</th>
-            <th scope="col">Total</th>
-        </tr>
-        </thead>
-        <tbody>
+   <div class="card">
+       <div class="playercolumn">
+
+       </div>
+       <div class="scorecolumn"></div>
+   </div>
 </div>
 
 </div>

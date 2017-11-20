@@ -77,3 +77,11 @@ body{
 #player{
     width:40px;
 }
+.column{
+    border: 1px solid;
+    width:30px;
+    min-height:70px;
+}
+.scorecolumn{
+    display:flex;
+}
