@@ -66,6 +66,13 @@ function buildCard(mytee){
 
     for(var c in currentCourse.course.holes){
         $(".scorecolumn").append("<div id='column" + (Number(c) + 1) + "' class='column'></div>")
-
+    }
+    fillCard();
+}
+function fillCard(){
+    for(var p = 1; p <= numplayers; p++){
+        for(var h = 1; h <= numholes; h++){
+            $("#column" + h).append("<input id='player"+ p + "hole" + h +"' type= 'text' class='holeinput'/> ");
+        }
     }
 }
