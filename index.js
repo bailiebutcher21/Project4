@@ -2,12 +2,12 @@ var weatherobj;
 var closeCourses;
 var local_obj = {latitude:40.4426135, longitude: -111.8631116, radius: 100};
 var numholes;
-var numplayers = 5;
+var numplayers = 4;
 var selectedtee;
 
 
 $(function(){
-    $.get("http://api.openweathermap.org/data/2.5/weather?q=Lehi&appid=cc8ef8e5c209d938ab3801daa42b5e31", function(data, status){
+    $.get("http://api.openweathermap.org/data/2.5/weather?q=lehi&appid=cc8ef8e5c209d938ab3801daa42b5e31", function(data, status){
         weatherobj = data;
         console.log(data);
         mytemp = tempconvert(weatherobj.main.temp);
@@ -23,8 +23,8 @@ function tempconvert(valNum) {
     return Math.round(((valNum-273.15)*1.8)+32);
 }
 
-function addPlayer(){
-        $("#tablehead").append("<tr id='random'></tr>");
+/*function addPlayer(){
+        $("#scorecolumn").append("<tr id='newplayer'></tr>");
         for(var i =0; i<1; i++){
             $("#random").append("<div id='lists'>Player<span onclick='editItem(this)'></span></div>");
         }
@@ -33,14 +33,8 @@ function addPlayer(){
         $("#inputbox").val("");
     }
 
-}
-var editItem = function(element) {
-    var text = element.innerText;
-    var input ="<input onkeyup='save(this)' value='"+ text +"'>";
-    $(element).parent().prepend(input);
-    $(element).remove();
+}*/
 
-};
 
 
 function loadMe(){
@@ -60,7 +54,17 @@ function getCourse(courseid){
             var teename = currentCourse.course.tee_types[t].tee_type;
             $("#selecttype").append("<option value='" + t +"'>"+ teename + "</option>");
         } });
+    //changeName();
 }
+/*function changeName(coursename){
+    $.get("https://golf-courses-api.herokuapp.com/courses/" + coursename, function(data){
+        currentCourse = JSON.parse(data);
+        for(var n in currentCourse.course.name) {
+            var courseName = currentCourse.course.name;
+            $("#leftside").HTML().append("<span>" + n + "</span>");
+        } });
+
+}*/
 function buildCard(mytee){
     selectedtee = mytee;
     numholes = currentCourse.course.holes.length;
@@ -75,8 +79,22 @@ function buildCard(mytee){
 }
 function fillCard(){
     for(var p = 1; p <= numplayers; p++){
+        $(".playercolumn").append("<span class='players' id='pl"+ p +"' ><span class='deletebtn' onclick='deleteplayer("+ p +")'><i class=\"fa fa-minus-circle\" aria-hidden=\"true\"'></i></span><span contenteditable='true'>Player</span></span></span>");
         for(var h = 1; h <= numholes; h++){
             $("#column" + h).append("<input id='player"+ p + "hole" + h +"' type= 'text' class='holeinput'/> ");
         }
+    }
+}
+function deleteplayer(playerid){
+    $("#pl" + playerid).remove();
+    for(var h = 1; h <= numholes.length; h++){
+        $("#player" + playerid + "hole" + h).remove();
+    }
+}
+
+function addPlayer(playerid){
+    $("#pl" + playerid).append();
+    for(var h = 1; h <= numholes.length; h++){
+        $("#player" + playerid + "hole" + h).append();
     }
 }

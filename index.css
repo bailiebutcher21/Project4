@@ -6,6 +6,7 @@ body{
     position: relative;
     display:flex;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .bottomcontainer{
@@ -94,4 +95,18 @@ body{
 }
 .hcp{
     text-align: center;
+}
+.card{
+    display:flex;
+}
+.fa-minus-circle{
+    color: red;
+}
+#pl{
+    align-self: stretch;
+    margin-right:10px;
+
+}
+.players{
+
 }
