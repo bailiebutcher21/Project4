@@ -91,8 +91,9 @@ function fillCard(){
 }
 function deleteplayer(playerid){
     $("#pl" + playerid).remove();
-    for(var h = 1; h <= numholes.length; h++){
-        $("#addplayer" + playerid + "hole" + h).remove();
+    $(".totalc").remove();
+    for(var h = 1; h <= numholes; h++){
+        $("#player" + playerid + "hole" + h).remove();
     }
 }
 
