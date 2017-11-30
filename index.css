@@ -66,6 +66,10 @@ body{
     margin-top:50px;
     margin-right:15px;
 }
+.playercolumn{
+    margin-top: 80px;
+    line-height: 25px;
+}
 .column{
     border: 1px solid;
     align-self: stretch;
@@ -81,7 +85,7 @@ body{
     text-align: center;
 }
 .gettee{
-    text-align: center;
+    margin-left: 10px;
 }
 .hcp{
     text-align: center;
@@ -95,7 +99,8 @@ body{
 #pl{
     align-self: stretch;
     margin-right:10px;
-
+    padding-top: 50px;
+    max-width: 60px;
 }
 .holeheader{
     padding-top: 40px;
