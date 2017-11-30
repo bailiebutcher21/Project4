@@ -3,45 +3,38 @@ body{
     background-color: black;
 }
 .topcontainer{
-    position: relative;
     display:flex;
     justify-content: center;
     margin-top: 10px;
 }
-
 .bottomcontainer{
-    z-index:1;
     border:black 1px;
-    margin: 15px 100px 15px 100px;
+    margin: 25px 100px 25px 100px;
     align-self: stretch;
-    height:100%;
+    background-color: white;
+    border-radius: 10px;
+
 }
 .image{
     margin-top: 100px;
     width:100%;
     height:400px;
     background-color: black;
-    z-index: -1;
     border-radius: 10px;
 }
 .toparea{
     background-image: url("img/GooglePhoto.jpg");
     width:1000px;
-    height:400px;
     display:flex;
     justify-content: space-between;
     border-radius: 10px;
     background-repeat: no-repeat;
 }
 .addplayer{
-    background-color: white;
-    height:150px;
-    margin:15px 15px 15px 15px;
-    border-radius: 10px;
+    margin:25px 15px 25px 15px;
 }
 .add{
     background-color: dodgerblue;
-    height:50px;
     width:150px;
     color:white;
     font-size: 16px;
@@ -49,17 +42,13 @@ body{
     border-radius: 10px;
 }
 .leftside{
-    z-index: 1;
     color:white;
     width:50%;
-
     font-size: 50px;
     margin:300px 40px 0 10px;
 }
 .rightside{
-    z-index: 1;
     width:30%;
-    height:60%;
     background-image: url("img/whiteimage.png");
     border-radius: 10px;
     margin: 120px 20px 0 0;
@@ -73,8 +62,9 @@ body{
 #inputval{
     width:25px;
 }
-#player{
-    width:40px;
+.players{
+    margin-top:50px;
+    margin-right:15px;
 }
 .column{
     border: 1px solid;
@@ -107,6 +97,7 @@ body{
     margin-right:10px;
 
 }
-.players{
-
+.holeheader{
+    padding-top: 40px;
+    text-align: center;
 }
