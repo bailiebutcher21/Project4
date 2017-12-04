@@ -23,20 +23,6 @@ function tempconvert(valNum) {
     return Math.round(((valNum-273.15)*1.8)+32);
 }
 
-/*function addPlayer(){
-        $("#scorecolumn").append("<tr id='newplayer'></tr>");
-        for(var i =0; i<1; i++){
-            $("#random").append("<div id='lists'>Player<span onclick='editItem(this)'></span></div>");
-        }
-    for (var i = 0; i < 21; i++) {
-        $("#random").append("<th scope=\"col\"><input id='inputval'></th>");
-        $("#inputbox").val("");
-    }
-
-}*/
-
-
-
 function loadMe(){
     $.post("https://golf-courses-api.herokuapp.com/courses", local_obj, function(data,status){
         closeCourses = JSON.parse(data);
@@ -98,17 +84,21 @@ function deleteplayer(playerid){
 }
 
 function addPlayer(playerid){
-    $("#pl" + playerid).append();
-    $(".totalc").append();
-    for(var h = 1; h <= numholes; h++){
-        $("#player" + playerid + "hole" + h).append();
+    numplayers = 1;
+    for(var p = 1; p <= numplayers; p++){
+        $(".playercolumn").append("<span class='players' id='pl"+ p +"' ><span class='deletebtn' onclick='deleteplayer("+ p +")'><i class=\"fa fa-minus-circle\" aria-hidden=\"true\"'></i></span><span contenteditable='true'>Player</span></span></span>");
+        //$("inscoretotal").append("<input type = 'text' class = 'intotal' id = 'intotal" + p + "'>");
+        $(".totalc").append("<input type = 'text' class = 'holeinput' id = 'totalhole" + p + "'>");
+        for(var h = 1; h <= numholes; h++){
+            $("#column" + h).append("<input id='player"+ p + "hole" + h +"' type= 'number' class='holeinput' onkeyup = 'updatescore("+ p +")'/> ");
+        }
     }
 }
 
 function updatescore(playerid){
-    var playertotal = 0;
-    for (var t = 1; t <= numholes.length; t++){
-        playertotal += Number($("#player" + playerid + "hole" + t).val());
+   // var playertotal = 0;
+    for (var t = 1; t <= numholes; t++){
+        var playertotal = Number($("#player" + playerid + "hole" + t).val());
     }
     $("#totalhole" + playerid).val(playertotal);
 }
