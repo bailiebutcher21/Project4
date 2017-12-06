@@ -4,7 +4,7 @@ var local_obj = {latitude:40.4426135, longitude: -111.8631116, radius: 100};
 var numholes;
 var numplayers = 4;
 var selectedtee;
-var playertotal = 0;
+
 
 
 $(function(){
@@ -92,15 +92,23 @@ function addPlayer(playerid){
     }
 }
 
-function updatescore(playerid){
-    //var playertotal = 0;
-    for (var t = 1; t <= numholes; t++){
-         playertotal += Number($("#player" + playerid + "hole" + t).val());
+function updatescore(playerid) {
+    var playertotal = 0;
+    var finished = true;
+    for (var t = 1; t <= numholes; t++) {
+        var score = Number($("#player" + playerid + "hole" + t).val());
+        if (score == 0) {
+            finished = false;
+        }
+        playertotal += score;
     }
     $("#totalhole" + playerid).val(playertotal);
-}
-/*if (playertotal) {
-    alert("Great Job!")
-} else {
-    alert("Better Luck Next time!")
+    if(finished){
+        if(playertotal <= 72){
+            toastr.success("You're awesome")
+        }
+        else{
+            toastr.warning("Better Luck next time")
+        }
+    }
 }
