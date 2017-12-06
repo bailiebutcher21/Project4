@@ -40,28 +40,20 @@ function getCourse(courseid){
             var teename = currentCourse.course.tee_types[t].tee_type;
             $("#selecttype").append("<option value='" + t +"'>"+ teename + "</option>");
         } });
-    //changeName();
 }
-/*function changeName(coursename){
-    $.get("https://golf-courses-api.herokuapp.com/courses/" + coursename, function(data){
-        currentCourse = JSON.parse(data);
-        for(var n in currentCourse.course.name) {
-            var courseName = currentCourse.course.name;
-            $("#leftside").HTML().append("<span>" + n + "</span>");
-        } });
-
-}*/
 function buildCard(mytee){
     selectedtee = mytee;
     numholes = currentCourse.course.holes.length;
     console.log(numholes);
 
-    for(var c in currentCourse.course.holes){
+    for(var c in currentCourse.course.holes) {
         var getPar = currentCourse.course.holes[c].tee_boxes[mytee].par;
         var gethcp = currentCourse.course.holes[c].tee_boxes[mytee].hcp;
-        $(".scorecolumn").append("<div id='column" + (Number(c) + 1) + "' class='column'><div class='holenumber'> Hole " + (Number(c) +1) +"</div><span class='gettee'>Par " + getPar +"</span><div class='hcp'>HCP "+ gethcp +"</div></div></div>")
+        var getyardage = currentCourse.course.holes[c].tee_boxes[mytee].yards;
+        $(".scorecolumn").append("<div id='column" + (Number(c) + 1) + "' class='column'><div class='holenumber'> Hole " + (Number(c) + 1) + "</div><span class='gettee'>Par " + getPar + "</span><div class='hcp'>HCP " + gethcp + "<div class='yardage'>Yardage: "+ getyardage +" </div></div></div>")
     }
-    $(".scorecolumn").append("<div class = 'totalc column'><div class = 'holeheader'>Total</div></div>");
+        $(".scorecolumn").append("<div class = 'out-total'><div class = 'holeheader'>Out</div></div>");
+        $(".scorecolumn").append("<div class = 'totalc column'><div class = 'holeheader'>Total</div></div>");
 
     fillCard();
 }
@@ -75,6 +67,12 @@ function fillCard(){
         }
     }
 }
+
+$(".out-total").append("<div class = 'out-total'><div class = 'holeheader'>Out</div></div>");
+for(var h = 1; h <= numholes; h++){
+    $("#column" + h).append("<input id='player"+ p + "hole" + h +"' type= 'number' class='holeinput' onkeyup = 'updatescore("+ p +")'/> ");
+}
+
 function deleteplayer(playerid){
     $("#pl" + playerid).remove();
     $(".totalc").remove();
